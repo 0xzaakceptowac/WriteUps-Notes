@@ -6,7 +6,7 @@
 * Verify and setup Both machines
 
 Pfsense Config
-![](z.attachments/Pasted%20image%2020250702234259.png)
+![test](z.attachments/Pasted%20image%2020250702234259.png)
 
 Linux Victim
 ![[z.attachments/Pasted image 20250702234623.png]]
