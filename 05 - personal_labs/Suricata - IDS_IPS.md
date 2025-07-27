@@ -1,5 +1,5 @@
 # Topology
-![[z.attachments/Pasted image 20250702225848.png]]
+![](z.attachments/Pasted%20image%2020250702225848.png)
 
 # Part I - Install and Configuration
 * Victim and Attacker VM machines should lease IP addresses from DHCP server as previous Labs. Victim and Attacker should belong to same LAN
