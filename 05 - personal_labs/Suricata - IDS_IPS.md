@@ -6,80 +6,80 @@
 * Verify and setup Both machines
 
 Pfsense Config
-![[z.attachments/Pasted image 20250702234259.png]]
+![](../z.attachments/Pasted%20image%2020250702234259.png)
 
 Linux Victim
-![[z.attachments/Pasted image 20250702234623.png]]
+![](../z.attachments/Pasted%20image%2020250702234623.png)
 
 Linux Attacker
-![[z.attachments/Pasted image 20250702234651.png]]
+![](../z.attachments/Pasted%20image%2020250702234651.png)
 
 ## Installed Suricata
 
 ### Global Settings
 
 Enabled Emerging Threats
-![[z.attachments/Pasted image 20250703034326.png]]
+![](../z.attachments/Pasted%20image%2020250703034326.png)
 
 Enabled GPLv2 Community rules
-![[z.attachments/Pasted image 20250703034553.png]]
+![](../z.attachments/Pasted%20image%2020250703034553.png)
 
 Run an update to apply
-![[z.attachments/Pasted image 20250703034515.png]]
+![](../z.attachments/Pasted%20image%2020250703034515.png)
 
 ### Configure Interfaces
 
 Uncheck these rules as per suricata documentation
-![[z.attachments/Pasted image 20250703041007.png]]
+![](../z.attachments/Pasted%20image%2020250703041007.png)
 
 Enable both WAN & LAN Interfaces
-![[z.attachments/Pasted image 20250703042035.png]]
+![](../z.attachments/Pasted%20image%2020250703042035.png)
 
 ### Create an ICMP rule to test in LAN
 
 * Home_Net for LAN
 
 Highlighted the IP range covered for LAN
-![[z.attachments/Pasted image 20250703042156.png]]
+![](../z.attachments/Pasted%20image%2020250703042156.png)
 
 * External_net for LAN
 
 Rules are opposite of the Home_net values (!)
-![[z.attachments/Pasted image 20250703042406.png]]
+![](../z.attachments/Pasted%20image%2020250703042406.png)
 
 * LAN Variables verify/explore pre-defined Servers -IP
 
 Will be using default values for Servers
-![[z.attachments/Pasted image 20250703042532.png]]
+![](../z.attachments/Pasted%20image%2020250703042532.png)
 
 Will be using default values for Ports
-![[z.attachments/Pasted image 20250703042705.png]]
+![[../z.attachments/Pasted image 20250703042705.png]]
 
 * Custom ICMP rule
-![[z.attachments/Pasted image 20250703142857.png]]
+![](../z.attachments/Pasted%20image%2020250703142857.png)
 
 ```
 alert icmp $HOME_NET any -> $EXTERNAL_NET any (msg:"ping alert"; sid:1000001;)
 ```
 
 * Alert shown based on rule configured
-![[z.attachments/Pasted image 20250703142734.png]]
+![](../z.attachments/Pasted%20image%2020250703142734.png)
 
 ### Create an https rule to test in WAN
 
 * Custom rule in WAN
-![[z.attachments/Pasted image 20250703145212.png]]
+![](../z.attachments/Pasted%20image%2020250703145212.png)
 
 ```
 alert tls $HOME_NET any -> $EXTERNAL_NET 443 (msg:"https connection detected"; sid:1000002;)
 ```
 
 * Alert shown based on rule configured
-![[z.attachments/Pasted image 20250703145054.png]]
+![](../z.attachments/Pasted%20image%2020250703145054.png)
 
 ### Enable IPS
 
-![[z.attachments/Pasted image 20250704122558.png]]
+![](../z.attachments/Pasted%20image%2020250704122558.png)
 
 * Verification - blocking youtube when client wants to access it
 ```
@@ -87,9 +87,9 @@ alert tls $HOME_NET any -> $EXTERNAL_NET any (msg:"User Accessed Youtube"; tls.s
 ```
 
 * alert generated
-![[z.attachments/Pasted image 20250704134427.png]]
+![](../z.attachments/Pasted%20image%2020250704134427.png)
 * alert dropped
-![[z.attachments/Pasted image 20250704134506.png]]
+![](../z.attachments/Pasted%20image%2020250704134506.png)
 # Part II - Create custom rules
 
 ## Rule format
@@ -99,37 +99,37 @@ Action -> Header -> Options
 ##  DHCP spoofing without config
 
 Victim IP address
-![[z.attachments/Pasted image 20250703020440.png]]
+![](../z.attachments/Pasted%20image%2020250703020440.png)
 
 Ettercap config
-![[z.attachments/Pasted image 20250703021528.png]]
+![](../z.attachments/Pasted%20image%2020250703021528.png)
 
 Victim ip catching the attack
-![[z.attachments/Pasted image 20250703021804.png]]
+![](../z.attachments/Pasted%20image%2020250703021804.png)
 
 
 ## ARP  poisoning without config
 
 router MacAddress
-![[z.attachments/Pasted image 20250703023057.png]]
+![](../z.attachments/Pasted%20image%2020250703023057.png)
 
 Victim arp (should match above)
-![[z.attachments/Pasted image 20250703023219.png]]
+![](../z.attachments/Pasted%20image%2020250703023219.png)
 
 
 Attacker send arp poisoning
-![[z.attachments/Pasted image 20250703023242.png]]
+![](../z.attachments/Pasted%20image%2020250703023242.png)
 
 
 Attacker Mac address
-![[z.attachments/Pasted image 20250703023419.png]]
+![](../z.attachments/Pasted%20image%2020250703023419.png)
 
 Victim arp (should match above)
-![[z.attachments/Pasted image 20250703023511.png]]
+![](../z.attachments/Pasted%20image%2020250703023511.png)
 ## DHCP Spoofing IDS
 
 * DHCP is on UDP port 68/67
-![[z.attachments/Pasted image 20250703165820.png]]
+![](../z.attachments/Pasted%20image%2020250703165820.png)
 
 * Test rule if it works
 ```
@@ -137,7 +137,7 @@ alert dhcp 192.168.70.1 67 -> any 68 (msg:"Potential DHCP spoofing- IP parameter
 ```
 
 * Tested a rule then it works, it captures the default dhcp process
-![[z.attachments/Pasted image 20250703182145.png]]
+![](../z.attachments/Pasted%20image%2020250703182145.png)
 
 * I just need to reverse it to capture traffic that are outside 192.168.70.1 which is our dhcp server
 
@@ -149,12 +149,13 @@ alert dhcp !192.168.70.1 67 -> any 68 (msg:"Potential DHCP spoofing- IP paramete
 
 * First my spoofing attacks are not getting through as pfsense offer faster IP than ettercap
 * I need to stop DHCP from pfsense to victim machine
-![[z.attachments/Pasted image 20250703180433.png]]
+![](../z.attachments/Pasted%20image%2020250703180433.png)
 
-* Temporarily blacklisted the victims machine to make the spoofing attack sucessful![[z.attachments/Pasted image 20250703223601.png]]
+* Temporarily blacklisted the victims machine to make the spoofing attack sucessful
+* ![](../z.attachments/Pasted%20image%2020250703223601.png)
 
 * DHCP spoofing sucessful
-![[z.attachments/Pasted image 20250703223633.png]]
+![](../z.attachments/Pasted%20image%2020250703223633.png)
 
 * Stretched the rule to detect any traffic that is occuring
 
@@ -167,7 +168,7 @@ alert dhcp any any -> any any (msg:"might be False positive - DHCP rule any any"
 * The only thing that was captured is:
 	* the pingback of ipv6 from ettercap 
 	* DHCP Request from client when host don't have IP address
-![[z.attachments/Pasted image 20250703222924.png]]
+![](../z.attachments/Pasted%20image%2020250703222924.png)
 
 
 ## DHCP Spoofing (IPS)
@@ -184,20 +185,20 @@ drop icmp any any -> any any (msg:"Blocking Device Discovery"; sid:1000008;) dro
 drop udp !192.168.70.1 67 -> any 68 (msg:"Dropping DHCP offer"; sid:10000010;)
 ```
 * List of activities that was blocked
-![[z.attachments/Pasted image 20250704150238.png]]
+![](../z.attachments/Pasted%20image%2020250704150238.png)
 
 * IP of victim machine
-![[z.attachments/Pasted image 20250704150341.png]]
+![](../z.attachments/Pasted%20image%2020250704150341.png)
 
 # Part III - Analyze predefined Snort rules
 * WAN interface, under Global Settings > Enable Snort GPLv2 Community rules
 
 * Hide Deprecated Rules Categories 
-![[z.attachments/Pasted image 20250704151145.png]]
+![](../z.attachments/Pasted%20image%2020250704151145.png)
 * Remove Blocked Hosts Interval one hour as recommended
-![[z.attachments/Pasted image 20250704151204.png]]
+![](../z.attachments/Pasted%20image%2020250704151204.png)
 * Under WAN categories make sure the GPLv2 is enabled and saved
-![[z.attachments/Pasted image 20250704151220.png]]
+![](../z.attachments/Pasted%20image%2020250704151220.png)
 
 Select one default enabled rule, click on SID to see the rule and explain it
 * Alert that references to CVE 2014-0160 which is codename heartbleed bug which allows attackers to obtain sensitive information in process memory via buffer over-read
@@ -246,13 +247,13 @@ edit knockd.conf
 ```
 sudo nano /etc/knockd.conf
 ```
-![[z.attachments/Pasted image 20250703011705.png]]
+![](../z.attachments/Pasted%20image%2020250703011705.png)
 
 edit knockd service
 ```
 sudo nano /etc/default/knockd
 ```
-![[z.attachments/Pasted image 20250703012031.png]]
+![](../z.attachments/Pasted%20image%2020250703012031.png)
 
 start knockd service
 ```
@@ -263,7 +264,7 @@ verify the service
 ```
 ssh tubetita@192.168.70.2 
 ```
-![[z.attachments/Pasted image 20250703012633.png]]
+![](../z.attachments/Pasted%20image%2020250703012633.png)
 
 Use port knocking to connect ssh
 ```
@@ -271,14 +272,14 @@ knock 192.168.70.2 9991 9992 9993 -d 500
 
 ssh tubetita@192.168.70.2
 ```
-![[z.attachments/Pasted image 20250703014508.png]]
+![](../z.attachments/Pasted%20image%2020250703014508.png)
 
 ## 2. Use IDS to detect ssh login attempts. 
 
 ```
 alert tcp any any -> any 22 (msg:"SSH Connection detected"; sid:1000011;)
 ```
-![[z.attachments/Pasted image 20250704163947.png]]
+![](../z.attachments/Pasted%20image%2020250704163947.png)
 ## 3. Bonus (challenge) detect port scanning
 
 * Got this rule in Emerging threat scans
