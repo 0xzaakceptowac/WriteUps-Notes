@@ -14,11 +14,14 @@
 Gateway Network C
 ![](../z.attachments/Pasted%20image%2020250727162729.png)Gateway Network A
 ![](../z.attachments/Pasted%20image%2020250727162908.png)
+
 2. [x] Configure static routes. Wan interface on PF1 should point to OPT1 interface on PF2 and vice versa 
 Static Route Network C
 ![](../z.attachments/Pasted%20image%2020250727162929.png)Static Route Network A
 ![](../z.attachments/Pasted%20image%2020250727162951.png)
+
 3. [x] Verify default firewall setting by checking the logs 
+
 4. [x] Verify and configure the firewall for each interface on PF1 and PF2 to allow traffic among the networks 
 
 Network C - WAN, Firewall rules
@@ -131,6 +134,7 @@ Windows (LAN-PFSENSE) ping to KALI (NAT-Network)
 6. [x] Check firewall rule for WAN interface. It should had added the new NAT rule 
 
 ![](../z.attachments/Pasted%20image%2020250727164155.png)
+
 8. [x] Test port forwarding by accessing from outside http://10.0.2.15 (NAT Network) interface on PF2. The firewall will forward port HTTP 80 to VM on Network C. You should be able to access the web page you create on VM in network C
 
 ![](../z.attachments/Pasted%20image%2020250727164219.png)
