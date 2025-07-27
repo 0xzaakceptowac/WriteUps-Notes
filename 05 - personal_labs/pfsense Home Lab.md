@@ -1,18 +1,18 @@
 # Network Topology
 ## Part I & II
 
-![[../../z.Attachments/Pasted image 20250529192001.png]]
+![](../z.attachments/Pasted%20image%2020250727162628.png)
 
 ## Part III
 
-![[../../z.Attachments/Pasted image 20250529192203.png]]
+![](../z.attachments/Pasted%20image%2020250727162704.png)
+
 # Part 1
 
 1. [x] Configure the getaways on the Point-to-Point interfaces on Network 10.0.0.0/24 
 
 Gateway Network C
-![[../../z.Attachments/Pasted image 20250529184710.png]]
-Gateway Network A
+![](../z.attachments/Pasted%20image%2020250727162729.png)Gateway Network A
 ![[../z.Attachments/Pasted image 20250529184927.png]]
 2. [x] Configure static routes. Wan interface on PF1 should point to OPT1 interface on PF2 and vice versa 
 Static Route Network C
