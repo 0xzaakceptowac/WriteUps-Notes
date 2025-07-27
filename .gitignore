@@ -1,6 +1,8 @@
-.obsidian
+.obsidian*
 z.others/
-'02 - thm_labs'/
-'03 - htb_labs'/
-'04 - networking_labs'/
-'06 - Notes'/'Zaakceptowac Methodology.md'
+00 - Table of Contents/
+01 - PicoCTF/
+02 - thm_labs/
+03 - htb_labs/
+04 - networking_labs/
+06 - Notes/
