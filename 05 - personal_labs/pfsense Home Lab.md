@@ -13,123 +13,107 @@
 
 Gateway Network C
 ![](../z.attachments/Pasted%20image%2020250727162729.png)Gateway Network A
-![[../z.Attachments/Pasted image 20250529184927.png]]
+![](../z.attachments/Pasted%20image%2020250727162908.png)
 2. [x] Configure static routes. Wan interface on PF1 should point to OPT1 interface on PF2 and vice versa 
 Static Route Network C
-![[../../z.Attachments/Pasted image 20250529184828.png]]
-Static Route Network A
-![[../../z.Attachments/Pasted image 20250529185012.png]]
-
+![](../z.attachments/Pasted%20image%2020250727162929.png)Static Route Network A
+![](../z.attachments/Pasted%20image%2020250727162951.png)
 3. [x] Verify default firewall setting by checking the logs 
 4. [x] Verify and configure the firewall for each interface on PF1 and PF2 to allow traffic among the networks 
 
 Network C - WAN, Firewall rules
-![[../../z.Attachments/Pasted image 20250529191619.png]]
-Network C - LAN, Firewall rules
-![[../../z.Attachments/Pasted image 20250529194005.png]]
-Network C - OPT, Firewall rules
-![[../../z.Attachments/Pasted image 20250529193941.png]]
-
-
-
+![](../z.attachments/Pasted%20image%2020250727163012.png)Network C - LAN, Firewall rules
+![](../z.attachments/Pasted%20image%2020250727163029.png)Network C - OPT, Firewall rules
+![](../z.attachments/Pasted%20image%2020250727163053.png)
 
 5. [x] Use ping to test the connectivity among networks. You should be able to ping from any device on network A any device on network C and have access to the internet.
 
 Network C ping to Network A
-![[../../z.Attachments/Pasted image 20250530095908.png]]
-Network C ping google.com
-![[../../z.Attachments/Pasted image 20250529211608.png]]
-
+![](../z.attachments/Pasted%20image%2020250727163116.png)Network C ping google.com
+![](../z.attachments/Pasted%20image%2020250727163134.png)
 Network A ping to Network C
-![[../../z.Attachments/Pasted image 20250529204105.png]]
-
+![](../z.attachments/Pasted%20image%2020250727163157.png)
 Network A ping to google.com
-![[../z.Attachments/Pasted image 20250529201056.png]]
-
+![](../z.attachments/Pasted%20image%2020250727163217.png)
 6. [x] Use traceroute and netstat commands to verify the routing from source to destination network 
 Network C netstat to Network A
-![[../../z.Attachments/Pasted image 20250530100304.png]]
-
+![](../z.attachments/Pasted%20image%2020250727163238.png)
 Network A traceroute to Network C
-![[../../z.Attachments/Pasted image 20250529211924.png]]
-6. [ ] Demo result to instructor
-
+![](../z.attachments/Pasted%20image%2020250727163256.png)
 
 
 
 # Part 2
 
 - [x] On Windows VM configure Web Services by enabling IIS. Under control panel enable 
-![[../z.Attachments/Pasted image 20250529212225.png]]
+![](../z.attachments/Pasted%20image%2020250727163340.png)
 - [x] Use IIS manager to verify Default Web Site status, port and path. Verify access to the web server by accessing web browser http://localhost You can create a different web page
-![[../z.Attachments/Pasted image 20250529212320.png]]
+![](../z.attachments/Pasted%20image%2020250727163403.png)
 - [x] Now add OpenSSH server app under system> optional features> view and add OpenSSH Server. After installing the app under services make sure the service is enabled and running automatically 
-![[../z.Attachments/Pasted image 20250529212435.png]]
+![](../z.attachments/Pasted%20image%2020250727163423.png)
 
 - [x] Use Windows Defender Firewall to create rules that allow access to the respective ports to access the web server remotely and establish SSH connection 
-![[../z.Attachments/Pasted image 20250529212652.png]]
+![](../z.attachments/Pasted%20image%2020250727163445.png)
 - [x] Make Windows VM a client of Network C -LAN on PF2  
 - [x] On PfSense PF2 create firewall rules that allow HTTP and SSH traffic
-![[../z.Attachments/Pasted image 20250602183149.png]]
+![](../z.attachments/Pasted%20image%2020250727163503.png)
 - [x] On Network A have a Linux (kali) client machine connected (Untrusted) to the network 
-![[../z.Attachments/Pasted image 20250602171020.png]]
-- [ ] Use nmap or other tool to verify open ports on Network C (Windows)
-![[../../z.Attachments/Pasted image 20250602171040.png]]
+![](../z.attachments/Pasted%20image%2020250727163520.png)
+- [x] Use nmap or other tool to verify open ports on Network C (Windows)
+![](../z.attachments/Pasted%20image%2020250727163539.png)
 - [x] On PfSense PF1 under System> Advanced > admin Access enable Secure Shell and and Allow Agent Forwarding 
 - [x] From VM on Network A (Linux) access web server on windows and establish a SSH connection. Use log traffic to analyze the results
 SSH to gatway
-![[../../z.Attachments/Pasted image 20250602174333.png]]
+![](../z.attachments/Pasted%20image%2020250727163601.png)
 
 SSH to windows machine
-![[../../z.Attachments/Pasted image 20250602180048.png]]
-![[../../z.Attachments/Pasted image 20250602180325.png]]
+![](../z.attachments/Pasted%20image%2020250727163625.png)
+![](../z.attachments/Pasted%20image%2020250727163654.png)
+
 
 
 - [x] On PF2 create firewall rules that blocks access to the web server and SSH
-![[../../z.Attachments/Pasted image 20250602183058.png]]
+![](../z.attachments/Pasted%20image%2020250727163715.png)
 - [x] Block access to internet (specific protocol) from Network C. Use log traffic to analyze the results
 
-![[../../z.Attachments/Pasted image 20250602183001.png]]
+![](../z.attachments/Pasted%20image%2020250727163736.png)
 
-
-- [x] Demo result to instructor
 
 
 # PART III Port Forwarding /10 
 
 1. [x] Configure the following topology to implement Port forwarding 
-2. [ ] Before booting PF2 on Virtual box change ONLY NAT Interface into NAT Network. 
+2. [x] Before booting PF2 on Virtual box change ONLY NAT Interface into NAT Network. 
 Considered as Nat Network
-![[../../z.Attachments/Pasted image 20250602183342.png]]
+![](../z.attachments/Pasted%20image%2020250727163801.png)
 
 PF2-Configuration
-![[../../z.Attachments/Pasted image 20250602183437.png]]
+![](../z.attachments/Pasted%20image%2020250727163819.png)
 
 
-3. [ ] Configure one of the Linux machines with same Virtual Box interface NAT Network. This Linux machine represents the machine outside Network C and is connected to PF2 via NAT Network interface 
-![[../z.Attachments/Pasted image 20250602184742.png]]
+3. [x] Configure one of the Linux machines with same Virtual Box interface NAT Network. This Linux machine represents the machine outside Network C and is connected to PF2 via NAT Network interface 
+![](../z.attachments/Pasted%20image%2020250727163848.png)
 
 Same network via NAT network
-![[../../z.Attachments/Pasted image 20250602185053.png]]
-![[../z.Attachments/Pasted image 20250602185129.png]]
+![](../z.attachments/Pasted%20image%2020250727163914.png)
 
-3. [ ] Verify IP addresses on PF2 and Linux machines you should be able to ping 10.0.2.0/24 network
+3. [x] Verify IP addresses on PF2 and Linux machines you should be able to ping 10.0.2.0/24 network
 PF2 ping to kali
-![[../../z.Attachments/Pasted image 20250602185359.png]]
+![](../z.attachments/Pasted%20image%2020250727163932.png)
 
 Kali to PF2
-![[../z.Attachments/Pasted image 20250602203657.png]]
-3. [ ] Boot the VM on Network C 192.168.0.0/24. You should be able to ping from VM the NAT Network on PF2 and have access to Internet
+![](../z.attachments/Pasted%20image%2020250727163952.png)
+
+3. [x] Boot the VM on Network C 192.168.0.0/24. You should be able to ping from VM the NAT Network on PF2 and have access to Internet
 
 Windows (LAN-PFSENSE) ping to KALI (NAT-Network)
-![[../../z.Attachments/Pasted image 20250602185743.png]]
-
+![](../z.attachments/Pasted%20image%2020250727164013.png)
 
 5. [x] Start Apache2 (Web server) on VM located on Network C and Create a web page under /var/www directory and call it example.html 
-![[../../z.Attachments/Pasted image 20250602194833.png]]
+![](../z.attachments/Pasted%20image%2020250727164048.png)
 
 6. [x] Create firewall on PF2 to allow ICMP and TCP access in the 10.0.2.0/24 network 
-![[../../z.Attachments/Pasted image 20250602195254.png]]
+![](../z.attachments/Pasted%20image%2020250727164105.png)
 
 7. [x] Configure on PF2 Firewall NAT Port forwarding as follows: 
 
@@ -142,11 +126,11 @@ Windows (LAN-PFSENSE) ping to KALI (NAT-Network)
 	- [x] g. Input some description h. Enable NAT reflection as: Pure NAT 
 	- [x] i. Filter rule association: Create new associated filter rule 
 
-![[../../z.Attachments/Pasted image 20250602202643.png]]
+![](../z.attachments/Pasted%20image%2020250727164128.png)
 
-8. [ ] Check firewall rule for WAN interface. It should had added the new NAT rule 
+6. [x] Check firewall rule for WAN interface. It should had added the new NAT rule 
 
-![[../../z.Attachments/Pasted image 20250602202710.png]]
-8. [ ] Test port forwarding by accessing from outside http://10.0.2.15 (NAT Network) interface on PF2. The firewall will forward port HTTP 80 to VM on Network C. You should be able to access the web page you create on VM in network C
+![](../z.attachments/Pasted%20image%2020250727164155.png)
+8. [x] Test port forwarding by accessing from outside http://10.0.2.15 (NAT Network) interface on PF2. The firewall will forward port HTTP 80 to VM on Network C. You should be able to access the web page you create on VM in network C
 
-![[../../z.Attachments/Pasted image 20250602204248.png]]
+![](../z.attachments/Pasted%20image%2020250727164219.png)
